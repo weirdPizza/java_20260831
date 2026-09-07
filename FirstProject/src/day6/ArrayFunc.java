@@ -6,7 +6,7 @@ import java.util.Random;
 public class ArrayFunc { // 클래스의 private는 X. 아예 못 쓰는 클래스가 되버림
 	
 	private ArrayFunc(){};
-	// 생성자를 private로 막으면 
+	// 생성자를 private로 막으면 객체 생성이 불가능
 	
 	static void arrayMax(int arr[]) {
 		int max = arr[0];
