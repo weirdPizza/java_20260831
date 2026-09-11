@@ -32,10 +32,10 @@ public class MyFunction {
 	
 	
 	// 총점 구하는 메소드 내가 만듬
-//	static int totalScore(HashMap<String, Object> student) {
-//		int total = (Integer)student.get("java") + (Integer)student.get("db")+ (Integer)student.get("html");
-//		return total;
-//	}
+	static int totalScore(HashMap<String, Object> student) {
+		int total = (Integer)student.get("java") + (Integer)student.get("db")+ (Integer)student.get("html");
+		return total;
+	}
 	
 	
 	
