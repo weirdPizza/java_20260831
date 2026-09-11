@@ -64,7 +64,7 @@ public class _8_과일가게수정1 {
 						count = FruitFunc.nonNegative("구매할 과일 개수 : ");
 						
 						if((Integer) fruit.get("count")<count) {
-							System.out.println("현재 남은 과일의 개수는 "+(Interger) fruit.get("count"));
+							System.out.println("현재 남은 과일의 개수는 "+(Integer) fruit.get("count"));
 						}
 						
 					} while ((Integer) fruit.get("count")<count);
