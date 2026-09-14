@@ -13,7 +13,7 @@ public class _5_성적관리프로그램 {
 		
 		System.out.println("======= 성적관리 프로그램 =======");
 		while(true) {
-			System.out.print("[ (1) 성적등록, (2) 성적확인, (3) 성적순위, (그 외) 종료 ] : ");
+			System.out.print("[ (1) 성적등록, (2) 성적확인, (3) 성적순위, (4) 성적수정, (5) 삭제, (그 외) 종료 ] : ");
 			int menu = s.nextInt();
 			if(menu == 1) { // 성적등록
 				// 메뉴 1번에 대한 조건
@@ -153,6 +153,56 @@ public class _5_성적관리프로그램 {
 					System.out.println((i+1)+"등 : " +stuNoArr[i]+", "+scoreArr[i]+"점");
 				}
 				
+				
+			} else if(menu == 4) { // 성적 수정
+				// 학번을 입력받아서 해당 학번이 없으면 '학번을 확인해주세요' 출력
+				// 메뉴로 이동
+				// 있는 학번이면 '자바'(0~40), 'db'(0~35), 'html'(0~25) 점수를 다시 입력받아서
+				// 해당 점수로 저장
+				// 자바, db, html의 점수 범위는 1번 메뉴와 같다.
+				String stuNo = MyFunction.textLength("성적을 확인할 학번 : ", 4);
+//				System.out.print("성적을 확인할 학번 : ");
+//				String stuNo = s.next();
+				int index = stuNoList.indexOf(stuNo);
+				if(index == -1) { // 확인할 학번 없음
+					System.out.println("학번을 확인해주세요");
+					continue;
+				}
+				else { // 확인할 학번 있음
+					int java = MyFunction.scoreScope("자바 점수 : ", 0, 40);
+					list.get(index).put("java", java);
+					
+					int db = MyFunction.scoreScope("db 점수 : ", 0, 35);
+					list.get(index).put("db", db);
+					
+					int html = MyFunction.scoreScope("html 점수 : ", 0, 25);
+					list.get(index).put("html", html);
+				}
+				
+			}else if(menu == 5) { // 학생 삭제
+				// 학번을 입력받아서 해당 학번이 없으면 '학번을 확인해주세요' 출력
+				// 메뉴로 이동
+				// 있는 학번인 경우 '정말 삭제하시겠습니까?' 물어보고
+				// Y(대문자, 소문자 모두 포함) -> 해당 학번 가진 정보 삭제
+				// 그 외 문자 입력 시 '취소되었습니다' 출력 후 메뉴로 이동
+				String stuNo = MyFunction.textLength("성적을 확인할 학번 : ", 4);
+				int index = stuNoList.indexOf(stuNo);
+				if(index == -1) { // 확인할 학번 없음
+					System.out.println("학번을 확인해주세요");
+					continue;
+				}else { // 확인할 학번 있음
+					System.out.print("정말 삭제하시겠습니까? (y 누르면 삭제) : ");
+					String input = s.next();
+					if(input.toUpperCase().equals("Y")) { // 삭제 ㄱㄱ
+						list.remove(index);
+						stuNoList.remove(index);
+						System.out.println("삭제되었습니다!");
+					} else { // 삭제 안됨
+						System.out.println("취소되었습니다");
+						continue;
+					}
+					
+				}
 				
 			}else { // 종료
 				System.out.println("종료되었습니다");
