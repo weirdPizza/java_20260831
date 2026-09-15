@@ -9,6 +9,7 @@ public class _4_과일가게_DB연결 {
 	static Statement stmt = db.getStmt();
 	static Scanner s = new Scanner(System.in);
 	
+	
 	public static void addFruit() {
 		System.out.println("=== 과일 추가 ===");
 		// 1. 과일 이름 입력받아서 있는 과일이면 '이미 존재하는 과일 입니다.'
@@ -85,11 +86,61 @@ public class _4_과일가게_DB연결 {
 			System.out.println(e.getMessage());
 		}
 		
-
 		
 	}
 	public static void sellFruit() {
 		System.out.println("=== 과일 판매 ===");
+		// 1. 판매할 과일 이름 입력 받기
+		// 해당 파일 db에 없으면 '해당 과일은 존재하지 않습니다' 출력 후 메뉴로 이동
+		// 2. 과일이 있을 경우 현재 개수 알려주고 구매할 개수 입력받기
+		// 3. 구매 개수는 1 이상, 현재 개수보다 작은 숫자 입력받기
+		// 해당 범위 벗어날 경우 안내 문구 후 다시 입력하도록 유도
+		// 4. 정상 범위 입력했을 경우 기존 개수에서 차감 후 메뉴로 이동
+		try {
+			System.out.print("과일 이름 : ");
+			String fruitName = "'"+s.next()+"'";
+			
+			String sql = "SELECT * FROM FRUIT WHERE FRUIT_NAME = "+fruitName;
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) { // 검색한 과일 있음
+				int cnt = rs.getInt("CNT");
+				System.out.println(fruitName + "의 현재 재고 개수는 "+cnt+"개 입니다.");
+				System.out.print("구매할 과일 개수 : ");
+				int sellCnt = MyFunction.checkNumber("구매할 개수 : ", 1, cnt);
+				
+				if(sellCnt>=1 && sellCnt <= rs.getInt("CNT")) { // 정상범위 -> 구매가능
+					
+					sql = "UPDATE FRUIT SET CNT = CNT - "+sellCnt+" WHERE FRUIT_NAME = "+fruitName;
+					int result = stmt.executeUpdate(sql);
+					
+					if(result > 0) {
+						System.out.println("구매에 성공했습니다.");
+					}else {
+						System.out.println("구매에 실패했습니다.");
+						return;
+					}
+					
+				}else if(sellCnt<1){ // 구매 불가
+					System.out.println("1개 이상 구매해야 합니다.");
+				}else {
+					System.out.println("현재 재고 개수보다 적게 구매하셔야 합니다.");
+				}
+				
+				
+			}else { // 검색한 과일 없음
+				System.out.println("해당 과일은 존재하지 않습니다.");
+				return;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
+		
 	}
 	public static void checkFruit() {
 		System.out.println("=== 과일 확인 ===");

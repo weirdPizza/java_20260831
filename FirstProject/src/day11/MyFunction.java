@@ -15,4 +15,16 @@ public class MyFunction {
 			}
 		}
 	}
+	
+	public static int checkNumber(String msg, int min, int max) {
+		while(true) {
+			System.out.print(msg);
+			int input = s.nextInt();
+			if(input >= min && input <= max) {
+				return input;
+			}else {
+				System.out.println("구매 가능 개수는 "+min+"~"+max+"개 입니다.");
+			}
+		}
+	}
 }

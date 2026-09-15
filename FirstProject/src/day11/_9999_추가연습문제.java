@@ -8,7 +8,7 @@ public class _9999_추가연습문제 {
 	
 //	# 두 정수 배열이 주어졌을 때, 순서는 다르더라도 동일한 숫자들이 동일한 개수만큼 포함되어 있다면 true를 반환하는 메소드를 작성하시오
 	public static boolean sameNumberCounts(int[] arr1, int[] arr2) {
-		int arr1NumArr[] = new int[arr1.length];
+		int arr1NumArr[] = new int[arr1.length]; // 이건 다시 풀어봐야 할 듯
 		int arr2NumArr[] = new int[arr2.length];
 
 		for(int i=0; i<arr1.length; i++) {
@@ -44,12 +44,13 @@ public class _9999_추가연습문제 {
 		for(int i=0; i<arr1.length; i++) {
 	    	for(int j=0; j<arr2.length; j++) {
 	    		if(arr1[i]==arr2[j]) {
-	    			duplicateNum.add(arr1[i],3);
-	    		} // 인덱스 위치가 곧 값.
+	    			if(!duplicateNum.contains(arr1[i])) {
+	    				duplicateNum.add(arr1[i]);
+	    			}
+	    		} 
 	    	}
 	    }
-		System.out.println(duplicateNum);
-		return null;
+		return duplicateNum;
 	}
 
 }
