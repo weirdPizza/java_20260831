@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 public class AnonymousClassListener extends JFrame{
 	 AnonymousClassListener(){
-		 setTitle("첫번째 화면!!"); 
+		 	setTitle("첫번째 화면!!"); 
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 			Container c = getContentPane();
 			c.setLayout(new FlowLayout());

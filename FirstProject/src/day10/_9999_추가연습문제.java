@@ -1,5 +1,6 @@
 package day10;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class _9999_추가연습문제 {
@@ -14,6 +15,7 @@ public class _9999_추가연습문제 {
 			int ranNum = ran.nextInt(10)+1;
 			arr[i] = ranNum;			
 		}
+		System.out.println(Arrays.toString(arr));
 		
 		int maxCnt = 0;
 		int max = 0;
@@ -31,6 +33,9 @@ public class _9999_추가연습문제 {
 			System.out.println(i+" : "+count+"개  ");
 		}
 		System.out.println("가장 많은 수 : "+ max +", 개수 : "+ maxCnt);
+		
+		// 가장 많은 수의 개수가 중복이면 어떡해? 생각해보기, 지금 이 코드는 중복에 대한 대처가 없음
+		// 그래서 선생님은 해시맵으로 푸심
 		
 			
 		
