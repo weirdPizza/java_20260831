@@ -38,7 +38,7 @@ public class Quiz {
 			histogram.put(alpha.get(i), "");
 		} // 알파벳 맵 만듦
 		
-		
+		// 아 키 리스트를 만들어야 하네!!! 아
 		for(int i=0; i<str.length(); i++) {
 			String temp = str.substring(i, i+1);
 			String value = histogram.get(temp); 
