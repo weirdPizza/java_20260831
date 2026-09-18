@@ -53,10 +53,5 @@ public class Quiz {
 		System.out.println(histogram);
 	}
 }
-//		for(int )
-		
-		// 해시 맵으로 출력해야 할 듯 
-		
-}
 
 
