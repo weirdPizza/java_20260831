@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class Quiz {
 
 	public static void main(String[] args) {
@@ -38,35 +42,17 @@ public class Quiz {
 			histogram.put(alpha.get(i), "");
 		} // 알파벳 맵 만듦
 		
-		// 아 키 리스트랑 비교를 해야하네 맵의 키를 꺼내긴 힘드니까!
-  // 집가서 수정
 		for(int i=0; i<str.length(); i++) {
-			String temp = str.substring(i, i+1);
-			String value = histogram.get(temp); 
+			String temp = str.substring(i, i+1).toUpperCase();
 			if(alpha.contains(temp)) {
+				System.out.println(temp);
+				String value = histogram.get(temp); 
 				histogram.put(temp, value+"-");
 			}
 		}
 		System.out.println(histogram);
-		
-//		for(int i=0; i<str.length(); i++) {
-//			String alphaTemp = str.substring(i, i+1);
-//			
-//			for(int j=0; j<alpha.size(); j++) {
-//				if(alpha.get(j).equals(alphaTemp)) {
-//					System.out.println(alphaTemp);
-//					histogram.put(alphaTemp,histogram.get(alphaTemp)+"-");;
-//					break;
-//				}
-//			}
-			
-			
-		}
-		
-//		System.out.println(histogram);
-//			
-//		}
-		
+	}
+}
 //		for(int )
 		
 		// 해시 맵으로 출력해야 할 듯 
