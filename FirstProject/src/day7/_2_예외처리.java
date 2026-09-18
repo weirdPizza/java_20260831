@@ -1,4 +1,4 @@
-package dau7;
+package day7;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

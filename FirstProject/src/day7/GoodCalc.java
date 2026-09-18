@@ -1,4 +1,4 @@
-package dau7;
+package day7;
 
 public class GoodCalc implements Calculator{
 

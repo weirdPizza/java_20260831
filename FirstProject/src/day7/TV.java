@@ -1,4 +1,4 @@
-package dau7;
+package day7;
 
 public class TV {
 	// 6-1번
